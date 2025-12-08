@@ -6,13 +6,19 @@
 }
 
 html, body {
+    margin: 0;
     height: 100%;
+}
+
+body {
+    font: 400 1rem / 1.5rem "Helvetica Neue", sans-serif;
+    letter-spacing: normal;
+    line-height: 1.5;
 }
 
 a {
     text-underline-position: under;
 }
-
 
 .cg-faq-answer-img {
     width: 100%;
@@ -39,21 +45,17 @@ footer {
 }
 
     footer a {
-        margin: 8px;
+        margin: 0.5rem;
         /*font-size: 12px;*/
         -ms-transition: background-color 0.4s;
         -o-transition: background-color 0.4s;
         -webkit-transition: background-color 0.4s;
         transition: background-color 0.4s;
         /*line-height: 1.5em;*/
-        padding: 8px 16px;
-        -ms-border-radius: 4px;
-        border-radius: 4px;
+        padding: 0.5rem 1rem;
+        -ms-border-radius: 0.25rem;
+        border-radius: 0.25rem;
     }
-
-.cg-faq-article {
-    line-height: 1.7em;
-}
 
 .cg-faq-answer-content {
     word-break: break-word;
@@ -119,12 +121,19 @@ header a {
 
 .yp-homepage-title {
     font-family: "Kavoon";
-    font-size: 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
     font-weight: normal;
     margin: 0;
     text-align: center;
     color: rgb(255 255 255 / 86%);
     margin-top: var(--cg-title-space);
+}
+
+@media screen and (min-width: 600px) {
+    .yp-homepage-title {
+        font-size: min(7vw, 3.25rem);
+    }
 }
 
 .yp-homepage-definition {
@@ -152,13 +161,9 @@ header a {
     color: var(--cg-primary-color);
 }
 
-.yp-homepage-section__content,
-.cg-question {
-    margin: 2em 0 0 0;
-}
-
 .yp-homepage-capabily-description {
     color: rgb(112 135 161);
+    font-style: italic;
 }
 
 .yp-homepage-header-info {
@@ -202,49 +207,20 @@ header a {
     height: calc(var(--cr-embedded-width) * 315 / 560);
 }
 
-body {
-    font: 400 14px / 20px "Helvetica Neue", sans-serif;
-    letter-spacing: normal;
-}
-
-h1 {
-    font: 400 24px / 32px "Helvetica Neue", sans-serif;
-    letter-spacing: normal;
-    margin: 0 0 16px;
-}
-
 h2 {
-    font: 500 20px / 32px "Helvetica Neue", sans-serif;
-    letter-spacing: normal;
-    margin: 0 0 16px;
     position: sticky;
     top: 0;
-    background: linear-gradient(90deg, #ffffff 1rem, transparent 12rem, transparent calc(100% - 2rem), #ffffff calc(100% - 1rem));
-    backdrop-filter: blur(1rem) grayscale(0.95);
+    background: linear-gradient(90deg, #ffffff 1rem, #ffffff73 12rem, #ffffff calc(100% - 1rem));
+    backdrop-filter: blur(10rem) grayscale(0.95);
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    padding-bottom: 0.5rem;
 }
 
-h3 {
-    font: 400 16px / 28px "Helvetica Neue", sans-serif;
-    letter-spacing: normal;
-    margin: 0 0 16px;
+ol {
+    margin: 0;
 }
 
-h4 {
-    font: 400 15px / 24px "Helvetica Neue", sans-serif;
-    letter-spacing: normal;
-    margin: 0 0 16px;
-}
-
-h5 {
-    font: 400 calc(14px * 0.83) / 20px "Helvetica Neue", sans-serif;
-    margin: 0 0 12px;
-}
-
-h6 {
-    font: 400 calc(14px * 0.67) / 20px "Helvetica Neue", sans-serif;
-    margin: 0 0 12px;
-}
-
-p {
-    margin: 0 0 12px;
+section {
+    margin-bottom: 1rem;
 }

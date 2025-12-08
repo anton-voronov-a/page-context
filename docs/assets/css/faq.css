@@ -15,10 +15,11 @@ h1, h2, h3 {
     padding-bottom: 0.5em;
     position: sticky;
     top: 0;
-    background-color: white;
     outline-color: white;
     outline-width: 1px;
     outline-style: solid;
+    background: linear-gradient(90deg, #ffffff 1rem, #ffffff73 12rem, #ffffff calc(100% - 1rem));
+    backdrop-filter: blur(10rem) grayscale(0.95);
 }
 
 .cg-faq-answer-img {
@@ -82,7 +83,7 @@ footer {
 }
 
 .cg-faq-article {
-    line-height: 1.7em;
+    line-height: 1.5;
 }
 
 .cg-faq-answer-content {
