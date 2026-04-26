@@ -128,5 +128,19 @@ Learn how to use <a href="https://www.page-context.art/" title="Page context">Pa
         <a href="https://www.page-context.art/"
            title="Page context">Page context</a>
     </footer>
+    <script>
+        (() => {
+            const locationKey = 'locationKey';
+
+            if (sessionStorage.getItem(locationKey) === null) {
+                const locationInfo = {
+                    pathname: location.pathname,
+                    search: location.search
+                };
+                
+                sessionStorage.setItem(locationKey, JSON.stringify(locationInfo));
+            }
+        })();
+    </script>
 </body>
 </html>

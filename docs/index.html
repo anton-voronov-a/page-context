@@ -19,7 +19,6 @@
             font-weight: 400;
             src: url("/kavoon-latin-400-normal.woff2") format("woff2"), url("/kavoon-latin-400-normal.woff") format("woff");
         }
-
     </style>
 
         <link rel="stylesheet" href="/assets/css/landing.css">
@@ -318,5 +317,44 @@ Learn how to fix uneven sound levels in videos and audio files using the Page Co
                    title="YouTube"
                    class="yp-footer-link">YouTube</a>
         </footer>
+    <script>
+        (() => {
+            const knownUtmSources = new Set(['ext-cg']);
+            const knownUtmContentValues = new Set(['comments', 'equalizer']);
+            const knownFaqPaths = ["how-to-fix-fake-4k-quality-on-youtube","create-perfect-youtube-timestamps-in-real-time","how-to-fix-uneven-sound-levels-in-videos-and-audio-files","remove-distracting-website-elements-with-page-context","adjust-audio-video-speed-pitch-without-artifacts-in-browser","how-to-create-media-quote-clips-with-page-context-extension","is-there-a-way-to-set-a-specific-time-to-watch-in-youtube"];
+            const utmSourcesKey = 'utm_source';
+            const utmContentKey = 'utm_content';
+            const locationInfo = JSON.parse(sessionStorage.getItem('locationKey') || '{}');
+            const searchParams = new URLSearchParams(locationInfo.search);
+            const validSearchParams = new URLSearchParams('utm_medium=referral');
+            const utmSource = searchParams.get(utmSourcesKey);
+            const utmContent = searchParams.get(utmContentKey);
+
+            if (knownUtmSources.has(utmSource)) {
+                validSearchParams.set(utmSourcesKey, utmSource);
+            } else {
+                validSearchParams.set(utmSourcesKey, location.hostname.replaceAll('.', '--'));
+            }
+
+            if (utmContent === null) {
+                const pathes = (locationInfo.pathname || '').toLowerCase().split('/');
+                const faqPath = pathes[1];
+
+                if (knownFaqPaths.includes(faqPath)) {
+                    validSearchParams.set(utmContentKey, faqPath);
+                }
+            } else if (knownUtmContentValues.has(utmContent)) {
+                validSearchParams.set(utmContentKey, utmContent);
+            }
+
+            const link = document.querySelector('a[href*="chromewebstore.google.com/"]');
+
+            if (!link) {
+                return;
+            }
+
+            link.search = validSearchParams.toString();
+        })();
+    </script>
 </body>
 </html>
