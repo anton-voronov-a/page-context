@@ -338,7 +338,7 @@ Learn how to fix uneven sound levels in videos and audio files using the Page Co
 
             if (utmContent === null) {
                 const pathes = (locationInfo.pathname || '').toLowerCase().split('/');
-                const faqPath = pathes[1];
+                const faqPath = pathes[2];
 
                 if (knownFaqPaths.includes(faqPath)) {
                     validSearchParams.set(utmContentKey, faqPath);
